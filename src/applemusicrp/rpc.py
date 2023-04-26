@@ -67,10 +67,10 @@ def get_rp(info, statuses):
 
     formatting_args = {
         "status": "Playing" if info[0] == "PLAYING" else "Paused",
-        "state": info[0],
-        "song": info[1],
-        "artist": info[2],
-        "album": info[3],
+        "state": info[0][:125] + "..." if len(info[0]) > 128 else info[0],
+        "song": info[1][:125] + "..." if len(info[1]) > 128 else info[1],
+        "artist": info[2][:125] + "..." if len(info[2]) > 128 else info[2],
+        "album": info[3][:125] + "..." if len(info[3]) > 128 else info[3],
     }
 
     # Format arguments
